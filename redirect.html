@@ -1,3 +1,8 @@
 <script>
-window.location.replace("twitterfeed://" + window.location.pathname);
+
+function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
+
+window.location.replace("twitterfeed://" + getURLParameter('oauth_token') + "&" getURLParameter('oauth_verifier'));
 </script>
